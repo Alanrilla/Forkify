@@ -9,16 +9,22 @@ const timeout = function (s) {
   });
 };
 
+const newFeature = function () {
+  console.log('welcome to the app!');
+};
+
+newFeature();
+
 export const AJAX = async function (url, uploadData = undefined) {
   try {
     const fetchPro = uploadData
       ? fetch(url, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(uploadData),
-        })
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(uploadData),
+      })
       : fetch(url);
 
     const res = await Promise.race([fetchPro, timeout(TIMEOUT_SEC)]);
