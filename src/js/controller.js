@@ -117,6 +117,10 @@ const controlAddRecipe = async function (newRecipe) {
     console.error('💥', err);
     addRecipeView.renderError(err.message);
   }
+
+  const newFeature = function () {
+    console.log('Welcome to the app!');
+  };
 };
 
 const init = function () {
@@ -127,5 +131,6 @@ const init = function () {
   searchView.addHandlerSearch(controlSearchResults);
   paginationView.addHandlerClick(controlPagination);
   addRecipeView.addHandlerUpload(controlAddRecipe);
+  newFeature();
 };
 init();
